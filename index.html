@@ -181,61 +181,137 @@
         }
 
         .intro-screen {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle, #0f172a, #020617);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            animation: introFadeOut 1s ease 3s forwards;
-        }
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #0f172a, #020617);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: introFadeOut 1s ease 3s forwards;
+}
 
-        .intro-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            animation: titleIn 1s ease;
-        }
+.intro-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    animation: titleIn 1s ease;
+}
 
-        .intro-sub {
-            margin-top: 10px;
-            color: #94a3b8;
-            animation: subIn 1.2s ease;
-        }
+.intro-sub {
+    margin-top: 10px;
+    color: #94a3b8;
+    animation: subIn 1.2s ease;
+}
 
-        /* Title animation */
-        @keyframes titleIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.7);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+/* Title animation */
+@keyframes titleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-        /* Subtitle animation */
-        @keyframes subIn {
-            0% {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Subtitle animation */
+@keyframes subIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        /* Fade out intro screen */
-        @keyframes introFadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
+/* Fade out intro screen */
+@keyframes introFadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* ========================= */
+/* Mobile (480px and below) */
+/* ========================= */
+
+@media (max-width:480px){
+
+    body{
+        padding:15px;
+    }
+
+    .card{
+        padding:25px 18px;
+        border-radius:20px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    p{
+        font-size:.95rem;
+        line-height:1.6;
+        margin-bottom:25px;
+    }
+
+    .dice{
+        font-size:48px;
+        margin-bottom:15px;
+    }
+
+    .mode-btn{
+        padding:14px;
+        font-size:16px;
+        border-radius:14px;
+    }
+
+    .intro-title{
+        font-size:1.7rem;
+    }
+
+    .intro-sub{
+        font-size:.9rem;
+    }
+
+}
+
+/* ========================= */
+/* Very Small Phones */
+/* ========================= */
+
+@media (max-width:320px){
+
+    h1{
+        font-size:1.5rem;
+    }
+
+    p{
+        font-size:.85rem;
+    }
+
+    .mode-btn{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .dice{
+        font-size:42px;
+    }
+
+    .intro-title{
+        font-size:1.4rem;
+    }
+
+}
 
     </style>
 
