@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Dice Challenge - Player vs Player</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="pvp.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 px-4">
+
+<div class="w-full max-w-4xl rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-8 text-white">
+
+    <!-- Heading -->
+
+    <div class="text-center mb-8">
+
+        <h1 class="text-4xl font-bold">
+            <i class="fa-solid fa-dice text-blue-400 mr-2"></i>
+            Double Dice Challenge
+        </h1>
+
+        <p class="text-slate-300 mt-3">
+            Human vs Human
+        </p>
+
+    </div>
+
+    <!-- Turn Indicator -->
+
+    <div class="text-center mb-8">
+
+        <h2 class="text-lg text-slate-300">
+            Current Turn
+        </h2>
+
+        <p id="turn"
+            class="text-2xl font-bold text-cyan-400 mt-2">
+            Player 1
+        </p>
+
+    </div>
+
+    <!-- Players -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Player 1 -->
+
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-6 text-center">
+
+            <h2 class="text-xl font-semibold mb-5">
+                Player 1
+            </h2>
+
+            <div class="flex justify-center gap-4 mb-5">
+
+                <div id="player1Dice1"
+                    class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl">
+
+                    <i class="fa-solid fa-dice-one"></i>
+
+                </div>
+
+                <div id="player1Dice2"
+                    class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl">
+
+                    <i class="fa-solid fa-dice-one"></i>
+
+                </div>
+
+            </div>
+
+            <p class="mb-4">
+                Total:
+                <span id="player1Total"
+                    class="font-bold text-cyan-400">
+                    0
+                </span>
+            </p>
+
+            <button
+                id="player1Roll"
+                class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition">
+
+                Roll Player 1
+
+            </button>
+
+        </div>
+
+        <!-- Player 2 -->
+
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-6 text-center">
+
+            <h2 class="text-xl font-semibold mb-5">
+                Player 2
+            </h2>
+
+            <div class="flex justify-center gap-4 mb-5">
+
+                <div id="player2Dice1"
+                    class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl">
+
+                    <i class="fa-solid fa-dice-one"></i>
+
+                </div>
+
+                <div id="player2Dice2"
+                    class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl">
+
+                    <i class="fa-solid fa-dice-one"></i>
+
+                </div>
+
+            </div>
+
+            <p class="mb-4">
+                Total:
+                <span id="player2Total"
+                    class="font-bold text-cyan-400">
+                    0
+                </span>
+            </p>
+
+            <button
+                id="player2Roll"
+                disabled
+                class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition">
+
+                Roll Player 2
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Winner -->
+
+    <div class="mt-8">
+
+        <div class="rounded-xl bg-white/5 border border-white/10 p-5 text-center">
+
+            <p class="text-slate-300">
+                Winner
+            </p>
+
+            <h2 id="winner"
+                class="text-2xl font-bold text-green-400 mt-2">
+
+                None
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- Scoreboard -->
+
+    <div class="grid grid-cols-3 gap-4 mt-8">
+
+        <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+
+            <p>Player 1 Wins</p>
+
+            <h2 id="player1Wins"
+                class="text-green-400 text-2xl font-bold">
+
+                0
+
+            </h2>
+
+        </div>
+
+        <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+
+            <p>Player 2 Wins</p>
+
+            <h2 id="player2Wins"
+                class="text-red-400 text-2xl font-bold">
+
+                0
+
+            </h2>
+
+        </div>
+
+        <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+
+            <p>Draws</p>
+
+            <h2 id="draws"
+                class="text-yellow-400 text-2xl font-bold">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- Attempts -->
+
+    <div class="mt-6">
+
+        <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
+
+            <p>Rounds Played</p>
+
+            <h2 id="attempts"
+                class="text-cyan-400 text-2xl font-bold">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="grid grid-cols-2 gap-4 mt-8">
+
+        <a href="index.html">
+
+            <button
+                class="w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600">
+
+                <i class="fa-solid fa-house mr-2"></i>
+
+                Home
+
+            </button>
+
+        </a>
+
+        <button
+            id="resetButton"
+            class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700">
+
+            <i class="fa-solid fa-rotate-left mr-2"></i>
+
+            Reset Game
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="pvp.js"></script>
+
+</body>
+</html>

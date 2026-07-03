@@ -2,129 +2,222 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6 MUST SHOW!!! </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Dice Challenge</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <style>
+        body{
+            font-family: "DM Sans", sans-serif;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(-45deg,#0f172a,#1e293b,#312e81,#0f172a);
+            background-size:400% 400%;
+            animation:bgMove 15s ease infinite;
+            overflow:hidden;
+        }
+
+        @keyframes bgMove{
+
+            0%{
+                background-position:0% 50%;
+            }
+
+            50%{
+                background-position:100% 50%;
+            }
+
+            100%{
+                background-position:0% 50%;
+            }
+
+        }
+
+        .card{
+
+            width:90%;
+            max-width:700px;
+
+            padding:50px;
+
+            border-radius:30px;
+
+            background:rgba(255,255,255,.08);
+
+            backdrop-filter:blur(18px);
+
+            border:1px solid rgba(255,255,255,.1);
+
+            text-align:center;
+
+            color:white;
+
+            box-shadow:0 20px 50px rgba(0,0,0,.4);
+
+            animation:float 6s ease-in-out infinite;
+
+        }
+
+        @keyframes float{
+
+            0%{
+                transform:translateY(0);
+            }
+
+            50%{
+                transform:translateY(-10px);
+            }
+
+            100%{
+                transform:translateY(0);
+            }
+
+        }
+
+        h1{
+
+            font-family:"Syne",sans-serif;
+
+            font-size:3rem;
+
+            margin-bottom:10px;
+
+        }
+
+        p{
+
+            color:#cbd5e1;
+
+            margin-bottom:40px;
+
+            font-size:1.1rem;
+
+        }
+
+        .dice{
+
+            font-size:70px;
+
+            color:#60a5fa;
+
+            animation:spin 8s linear infinite;
+
+            margin-bottom:20px;
+
+        }
+
+        @keyframes spin{
+
+            from{
+                transform:rotate(0deg);
+            }
+
+            to{
+                transform:rotate(360deg);
+            }
+
+        }
+
+        .mode-btn{
+
+            width:100%;
+
+            padding:18px;
+
+            margin-top:18px;
+
+            border:none;
+
+            border-radius:16px;
+
+            font-size:18px;
+
+            font-weight:700;
+
+            cursor:pointer;
+
+            transition:.3s;
+
+            color:white;
+
+            background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+        }
+
+        .mode-btn:hover{
+
+            transform:translateY(-4px);
+
+            box-shadow:0 15px 35px rgba(37,99,235,.4);
+
+        }
+
+        .mode-btn i{
+
+            margin-right:10px;
+
+        }
+
+        .footer{
+
+            margin-top:35px;
+
+            color:#94a3b8;
+
+            font-size:.95rem;
+
+        }
+
+    </style>
+
 </head>
 
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 px-4">
+<body>
 
-    <!-- MAIN CARD -->
-    <div class="w-full max-w-2xl rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-6 sm:p-10 text-white">
+    <div class="card">
 
-        <!-- HEADER -->
-        <div class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
-                <i class="fa-solid fa-dice text-blue-400 mr-2"></i>
-                Double Dice Challenge
-            </h1>
-
-            <p class="text-slate-300 mt-4 text-sm sm:text-base">
-                Roll the dice and see who wins <span class="text-white font-semibold">6 MUST SHOW!</span>
-            </p>
+        <div class="dice">
+            <i class="fa-solid fa-dice"></i>
         </div>
 
-        <!-- GAME AREA -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <h1>Double Dice Challenge</h1>
 
-            <!-- PLAYER -->
-            <div class="rounded-2xl bg-white/5 border border-white/10 p-5 text-center hover:scale-[1.02] transition">
-                <h2 class="text-lg font-semibold text-slate-200 mb-4">Player</h2>
+        <p>
+            Roll two dice and battle your opponent.
+            <br>
+            Get Double Six or have the highest total to win the round.
+            <br><br>
+            First to <strong>10 Wins</strong> takes the game.
+        </p>
 
-                <div class="flex justify-center gap-4">
-                    <div id="playerDice1" class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl shadow-inner">
-                        <i class="fa-solid fa-dice-one"></i>
-                    </div>
+        <a href="pvc.html">
+            <button class="mode-btn">
+                <i class="fa-solid fa-desktop"></i>
+                Human vs Computer
+            </button>
+        </a>
 
-                    <div id="playerDice2" class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl shadow-inner">
-                        <i class="fa-solid fa-dice-one"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- COMPUTER -->
-            <div class="rounded-2xl bg-white/5 border border-white/10 p-5 text-center hover:scale-[1.02] transition">
-                <h2 class="text-lg font-semibold text-slate-200 mb-4">Computer</h2>
-
-                <div class="flex justify-center gap-4">
-                    <div id="computerDice1" class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl shadow-inner">
-                        <i class="fa-solid fa-dice-one"></i>
-                    </div>
-
-                    <div id="computerDice2" class="w-20 h-20 flex items-center justify-center text-5xl bg-slate-800 rounded-xl shadow-inner">
-                        <i class="fa-solid fa-dice-one"></i>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- BUTTON -->
-        <button
-            id="rollButton" 
-            class="w-full py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 hover:scale-[1.01] active:scale-95 transition">
-            Roll Dice
-        </button>
-
-        <!-- STATS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
-                <p class="text-slate-300">Attempts</p>
-                <span id="attempts" class="text-xl font-bold text-cyan-400">0</span>
-            </div>
-
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
-                <p class="text-slate-300">Winner</p>
-                <span id="winner" class="text-xl font-bold text-green-400">None</span>
-            </div>       
-
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
-                <p class="text-slate-300">Player Wins</p>
-                <span id="playerWins" class="text-xl font-bold text-green-400">0</span>
-            </div>
-
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
-                <p class="text-slate-300">Computer Wins</p>
-                <span id="computerWins" class="text-xl font-bold text-red-400">0</span>
-            </div>
-
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
-                <p class="text-slate-300">Draws</p>
-                <span id="draws" class="text-xl font-bold text-yellow-400">0</span>
-            </div>
-
-        </div>
-
-        <!-- RESET BUTTON -->
-        <button id="resetButton"
-            class="w-full mt-6 py-3 rounded-xl font-semibold text-white bg-red-600 hover:bg-red-700 transition">
-            Reset Game
-        </button>
+        <a href="pvp.html">
+            <button class="mode-btn">
+                <i class="fa-solid fa-users"></i>
+                Human vs Human
+            </button>
+        </a>
 
     </div>
 
-    <!-- JS -->
-    <script src="script.js"></script>
-
 </body>
+
 </html>
